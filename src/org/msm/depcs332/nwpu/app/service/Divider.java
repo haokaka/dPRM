@@ -47,10 +47,10 @@ public class Divider {
 	// suppose there are n subgraphs in original graph
 	private static final int n = Integer.valueOf(props.getProperty("divider.subgraph.number.predict")); 
 	// beta belif level
-	private static final double lambda = Double.valueOf(props.getProperty("divider.beta.beliflevel")); 
-	private static final double MSE_TOLERANCE = Double.valueOf(props.getProperty("divider.mse.tolerance"));
+	public static final double lambda = Double.valueOf(props.getProperty("divider.beta.beliflevel")); 
+	public static final double MSE_TOLERANCE = Double.valueOf(props.getProperty("divider.mse.tolerance"));
 	public static final int GRAPH_SIZE_LOWERBOUND = Integer.valueOf(props.getProperty("divider.graph.size.lowerbound"));
-	private static final int NUMBER_PER_CUT = Integer.valueOf(props.getProperty("divider.percut.number.plan"));
+	public static final int NUMBER_PER_CUT = Integer.valueOf(props.getProperty("divider.percut.number.plan"));
 	/* graph to divide */
 	private Graph graph = new Graph();
 	/* occurrence likelihood */

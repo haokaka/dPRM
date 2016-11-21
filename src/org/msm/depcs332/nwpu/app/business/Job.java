@@ -34,24 +34,22 @@ public class Job {
 			return new ArrayList<>();
 		}
 		
-		ArrayList<Graph> currentList = new ArrayList<>();
-		currentList.add(getGraph());
-		double currentModularity = Quality.getModularity(currentList);
+		Graph originGraph = (Graph)getGraph().clone();
 		
+		ArrayList<Graph> currentList = new ArrayList<>();
+		currentList.add(originGraph);
+		double currentModularity = Quality.getModularity(currentList, originGraph);
 		while (true) {
 			ArrayList<Graph> outList = new ArrayList<>();
 			int notSplit = 0;
 			
 			for (Graph gOriginal: currentList) {
 				Graph g = (Graph)gOriginal.clone();
-				
 				if (Quality.getDensity(g) > Quality.DENSITY_LOWERBOUND) {
-					//System.out.println("good: " + Quality.getDensity(g));
 					outList.add(g);
 					++notSplit;
 					continue;
 				}
-				
 				outList.addAll(new Divider(g).entropyDivide());
 			}
 			
@@ -59,7 +57,7 @@ public class Job {
 				break;
 			}
 			
-			double newModularity = Quality.getModularity(outList);
+			double newModularity = Quality.getModularity(outList, originGraph);
 			
 			if (newModularity < currentModularity) { // down				
 				if (currentModularity - newModularity < Quality.MODULARITY_TOLERANCE) {

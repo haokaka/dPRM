@@ -23,60 +23,114 @@ public class Runner {
 	 * @param args
 	 */
 	
-	public static void run(Graph originalGraph, STRUCT best) {
-		ArrayList<Graph> list = originalGraph.split();		
+// run algorithm & get result
+//
+	public static void run(Graph originGraph, STRUCT best) {
+		Job job = new Job(originGraph);
 		ArrayList<Graph> outList = new ArrayList<>();
-		for (Graph g: list) {
-			Job job = new Job(g);
-			outList.addAll(job.getMsms());
-		}
+		outList.addAll(job.getMsms());
 		
-		double thisModularity = Quality.getModularity(outList);
+		double thisModularity = Quality.getModularity(outList, originGraph);
 		if (thisModularity > best.getModularity()) {
 			best.setModularity(thisModularity);
 			best.setList(outList);
 		}
 		
-		// debug output
+	// debug output
+	//
 		int size = 0;
 		for (Graph g: outList) {
 			size += g.size();
 		}
-		System.out.println("@ sample: [number: " + outList.size() + ", size: " + size + ", modularity: " + thisModularity + "]");
-		System.out.print("\t--: ");
+		pln("    reuslt: [" +
+				"split-blocks: " + outList.size() + ", " +
+				"left-edges: " + size + ", " +
+				"cut-edges: " + (originGraph.size() - size) + ", " + 
+				"modularity: " + thisModularity + "]");
+		p("\teach module:    ");
 		for (Graph g: outList) {
-			System.out.print(g.size() + " | ");
+			p(g.size() + "  ");
 		} 
-		System.out.println();
-		//-----------
+		pln("");
 	}
 	
+// main process
+//
 	public static void main(String[] args) {
-		Graph g = new Graph();
-//		g.readFromSif("SIMU_AA.txt", 0);
-//		g.readFromSif("SIMU_BB.txt", 1);
-//		g.readFromSif("SIMU_AABB.txt", 2);
+		Graph inputGraph = new Graph();
+		Graph originGraph = new Graph();
 		BioDataPreparator prep = new BioDataPreparator();
-		prep.readNodeAttributesFrom("test\\data\\big\\out_node_atrr_v1.txt");
-		prep.readEdgeFrom("test\\data\\big\\out_net_v4.txt");
-		System.out.println("@ load finish.");
-		g.readFromPerparator(prep);
-		//g.writeToSif("test\\out\\bit.sif");
+		String fileNode = "test\\data\\SIMU-atrr.txt";
+		String fileEdge = "test\\data\\SIMU-net.txt";
+		String sifOriginGraph = "test\\out\\bit.sif";
 		
+		pln("#1:"); // data preparation
+			pln("@load from $file{" + fileNode + "} & $file{" + fileEdge + "} ...");
+				prep.readNodeAttributesFrom(fileNode);
+				prep.readEdgeFrom(fileEdge);
+				inputGraph.readFromPerparator(prep);
+			pln("@load finished.\n");
+		// #1
 		
+		pln("#2:"); // runner initialization
+			pln("@check sub-graph within the input:");
+				p("    sub-graph size: ");
+					ArrayList<Graph> list = inputGraph.split();
+					Graph leftSubGraph = new Graph();
+					for (Graph sub_g: list) {
+						p("" + sub_g.size());
+						if (sub_g.size() < Divider.GRAPH_SIZE_LOWERBOUND) {
+							p("(×)\t");
+						}
+						else {
+							p("(√)\t");
+							leftSubGraph = sub_g;
+						}
+					}
+					originGraph = leftSubGraph;
+				pln("");
+			pln("@write origin-graph into $file{"+ sifOriginGraph + "} ...");
+				inputGraph.writeToSif(sifOriginGraph);
+			pln("@write finished.\n");
+		// #2
+		
+		pln("#3:");  // running configuration
+		pln("@configuration:");
+			pln("\t###########################");
+			pln("\t# graph-size-lowerbound: " + Divider.GRAPH_SIZE_LOWERBOUND);
+			pln("\t# mse-tolerance: " + Divider.MSE_TOLERANCE);
+			pln("\t# edges-percut: " + Divider.NUMBER_PER_CUT);
+			pln("\t# modularity-cutoff: " + Quality.MODULARITY_TOLERANCE);
+			pln("\t# density-lowerbound: " + Quality.DENSITY_LOWERBOUND);
+			pln("\t# belif-level: " + Divider.lambda);
+			pln("\t###########################\n");
+		// #3
+			
+	// run for result
+	//
+		pln("@ready to run ...\n");
 		STRUCT best = new STRUCT();
-		for (int i = 0; i < 10; i++) {
-			System.out.print("<" + (i + 1) + ">\t");
-			Graph cp_g = (Graph)g.clone();
-			long t0 = System.currentTimeMillis();
-			Runner.run(cp_g, best);
-			long tx = System.currentTimeMillis();
-			System.out.println("time consume: " + (tx - t0) / 1000);
+		int testRoundNum = 50;  // 4 configuration============================
+		for (int i = 0; i < testRoundNum; i++) {
+			pln("<round" + (i + 1) + "> ... ");
+				long t0 = System.currentTimeMillis();
+					Runner.run(originGraph, best);
+				long tx = System.currentTimeMillis();
+			pln("  -:- time consuming: " + (tx - t0) / 1000 + " sec. -:-");
 		}
 		
 		for (int i = 0; i < best.getList().size(); i++) {
 			String out = "test\\out\\big\\out" + (i + 1) + ".sif";
 			best.getList().get(i).writeToSif(out);
 		}
+	}
+	
+// debug output
+//
+	public static void pln(String msg) {
+		System.out.println(msg);
+	}
+	public static void p(String msg) {
+		System.out.print(msg);
 	}
 }

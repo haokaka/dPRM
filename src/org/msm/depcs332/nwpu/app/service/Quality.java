@@ -38,18 +38,10 @@ public class Quality {
 		
 		return (double)nume / (deno + 0.1);
 	}
-	public static double getModularity(ArrayList<Graph> list) {
-		double m0 = 0;
-		double m1 = 0;
-		double mx = 0;
-		for (Graph g: list) {
-			m0 += g.getSumInEdge(0);
-			m1 += g.getSumInEdge(1);
-			mx += g.getSumOutEdge();
-		}
-		m0 += 0.1;
-		m1 += 0.1;
-		mx += 0.1;
+	public static double getModularity(ArrayList<Graph> list, Graph originalGraph) {
+		double m0 = originalGraph.getSumInEdge(0) + 0.001;
+		double m1 = originalGraph.getSumInEdge(1) + 0.001;
+		double mx = originalGraph.getSumOutEdge() + 0.001;
 		
 		double q = 0.0;
 		for (Graph g: list) {
