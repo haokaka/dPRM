@@ -111,6 +111,17 @@ public class BioDataPreparator {
 		return null;
 	}
 	
+// output
+// 
+	public String getNameById(int id) {
+		for (BioNode node: getNodeSet()) {
+			if (id == node.getId()) {
+				return node.getName();
+			}
+		}
+		return "none";
+	}
+	
 // debug test
 //
 	public static void main(String[] args) {

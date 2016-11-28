@@ -1,0 +1,223 @@
+#1:
+@load from $file{test\data\big\out_node_atrr_new.txt} & $file{test\data\big\out_net_v6.txt} ...
+@load finished.
+
+#2:
+@check sub-graph within the input:
+    sub-graph size: 2343(¡Ì)	1(¡Á)	3(¡Á)	1(¡Á)	2(¡Á)	1(¡Á)	
+@write origin-graph into $file{test\out\bit.sif} ...
+@write finished.
+
+#3:
+@configuration:
+	###########################
+	# graph-size-lowerbound: 6
+	# mse-tolerance: 1.0E-4
+	# edges-percut: 1
+	# modularity-cutoff: 0.07
+	# density-lowerbound: 0.6
+	# belif-level: 0.1
+	###########################
+
+@ready to run ...
+
+<round1> ... 
+    reuslt: [split-blocks: 4, left-edges: 418, cut-edges: 1925, cut-level: 82%, modularity: 0.18459080031769978]
+	each module:    202(0.621442854945393) 8(0.7960199004975124) 194(0.6465589068488585) 14(0.9302325581395349) 
+  -:- time consuming: 3 sec. -:-
+<round2> ... 
+    reuslt: [split-blocks: 2, left-edges: 2239, cut-edges: 104, cut-level: 4%, modularity: 0.2932623872080146]
+	each module:    1813(0.07067936790111906) 426(0.3477409085343455) 
+  -:- time consuming: 1 sec. -:-
+<round3> ... 
+    reuslt: [split-blocks: 6, left-edges: 881, cut-edges: 1462, cut-level: 62%, modularity: 0.30403110411054063]
+	each module:    260(0.39036108400270253) 394(0.48045850862752276) 8(0.7960199004975124) 191(0.6365605732377937) 17(0.8076009501187649) 11(0.7308970099667774) 
+  -:- time consuming: 3 sec. -:-
+<round4> ... 
+    reuslt: [split-blocks: 5, left-edges: 749, cut-edges: 1594, cut-level: 68%, modularity: 0.24234651072305657]
+	each module:    46(0.696442089326268) 465(0.6274880237500844) 190(0.6332277953674388) 17(0.8076009501187649) 31(0.8599167822468794) 
+  -:- time consuming: 3 sec. -:-
+<round5> ... 
+    reuslt: [split-blocks: 7, left-edges: 1003, cut-edges: 1340, cut-level: 57%, modularity: 0.3447917546108838]
+	each module:    247(0.3708430298025674) 377(0.5660235718039187) 6(0.5970149253731343) 190(0.6332277953674388) 11(0.7308970099667774) 18(0.6417112299465241) 154(0.6665223977494048) 
+  -:- time consuming: 4 sec. -:-
+<round6> ... 
+    reuslt: [split-blocks: 6, left-edges: 914, cut-edges: 1429, cut-level: 60%, modularity: 0.3042869446117305]
+	each module:    118(0.31212802539346646) 438(0.5341137735503932) 191(0.6365605732377937) 16(0.7600950118764845) 11(0.7308970099667774) 140(0.7366482504604052) 
+  -:- time consuming: 4 sec. -:-
+<round7> ... 
+    reuslt: [split-blocks: 2, left-edges: 2240, cut-edges: 103, cut-level: 4%, modularity: 0.2918880559245504]
+	each module:    1816(0.07017530300776141) 424(0.34610832210930165) 
+  -:- time consuming: 1 sec. -:-
+<round8> ... 
+    reuslt: [split-blocks: 7, left-edges: 1125, cut-edges: 1218, cut-level: 51%, modularity: 0.37422983812930605]
+	each module:    250(0.537576604666165) 482(0.5337467471347102) 179(0.6484332548451367) 12(0.7973421926910299) 10(0.6644518272425249) 31(0.6881243063263042) 161(0.7664841704356106) 
+  -:- time consuming: 3 sec. -:-
+<round9> ... 
+    reuslt: [split-blocks: 7, left-edges: 1101, cut-edges: 1242, cut-level: 53%, modularity: 0.3671386771411301]
+	each module:    186(0.4275370647052063) 9(0.8955223880597014) 457(0.6166925308683625) 193(0.6432261289785035) 14(0.9302325581395349) 44(0.6661619984859954) 198(0.6091370558375634) 
+  -:- time consuming: 3 sec. -:-
+<round10> ... 
+    reuslt: [split-blocks: 5, left-edges: 1186, cut-edges: 1157, cut-level: 49%, modularity: 0.3757307199715991]
+	each module:    812(0.17083767265229693) 165(0.5977178047455171) 16(0.7600950118764845) 23(0.6380027739251041) 170(0.6718039913060659) 
+  -:- time consuming: 3 sec. -:-
+<round11> ... 
+    reuslt: [split-blocks: 2, left-edges: 2245, cut-edges: 98, cut-level: 4%, modularity: 0.2940036326521444]
+	each module:    1814(0.07009801743176167) 431(0.35182237459695526) 
+  -:- time consuming: 1 sec. -:-
+<round12> ... 
+    reuslt: [split-blocks: 6, left-edges: 540, cut-edges: 1803, cut-level: 76%, modularity: 0.15641745069327312]
+	each module:    42(0.7629427792915532) 438(0.6576082876660911) 9(0.8955223880597014) 8(0.7960199004975124) 9(0.8955223880597014) 34(0.6176203451407811) 
+  -:- time consuming: 3 sec. -:-
+<round13> ... 
+    reuslt: [split-blocks: 7, left-edges: 1385, cut-edges: 958, cut-level: 40%, modularity: 0.39990187681575723]
+	each module:    978(0.22860882878881733) 194(0.5968312567297339) 13(0.8637873754152824) 13(0.6175771971496437) 27(0.7489597780859918) 6(0.9917355371900827) 154(0.8103130755064456) 
+  -:- time consuming: 3 sec. -:-
+<round14> ... 
+    reuslt: [split-blocks: 4, left-edges: 1500, cut-edges: 843, cut-level: 35%, modularity: 0.40666320588246757]
+	each module:    1088(0.16891655863562619) 202(0.5343208570294934) 48(0.6149903907751442) 162(0.6401896858328393) 
+  -:- time consuming: 3 sec. -:-
+<round15> ... 
+    reuslt: [split-blocks: 3, left-edges: 2237, cut-edges: 106, cut-level: 4%, modularity: 0.29753525064032554]
+	each module:    1805(0.07492720023412155) 8(0.22191400832177532) 424(0.34610832210930165) 
+  -:- time consuming: 1 sec. -:-
+<round16> ... 
+    reuslt: [split-blocks: 6, left-edges: 643, cut-edges: 1700, cut-level: 72%, modularity: 0.22675866179222146]
+	each module:    255(0.6745139531807962) 13(0.8637873754152824) 192(0.6398933511081486) 18(0.6417112299465241) 23(0.6380027739251041) 142(0.6760295167817186) 
+  -:- time consuming: 4 sec. -:-
+<round17> ... 
+    reuslt: [split-blocks: 2, left-edges: 2228, cut-edges: 115, cut-level: 4%, modularity: 0.2894944127708295]
+	each module:    1815(0.07013666021976153) 413(0.33712909677156033) 
+  -:- time consuming: 1 sec. -:-
+<round18> ... 
+    reuslt: [split-blocks: 3, left-edges: 2232, cut-edges: 111, cut-level: 4%, modularity: 0.2970220367082606]
+	each module:    1803(0.07553082080595533) 7(0.24955436720142601) 422(0.3444757356842578) 
+  -:- time consuming: 1 sec. -:-
+<round19> ... 
+    reuslt: [split-blocks: 2, left-edges: 2235, cut-edges: 108, cut-level: 4%, modularity: 0.2919441444003236]
+	each module:    1813(0.07067936790111906) 422(0.3444757356842578) 
+  -:- time consuming: 1 sec. -:-
+<round20> ... 
+    reuslt: [split-blocks: 3, left-edges: 2238, cut-edges: 105, cut-level: 4%, modularity: 0.2982407347565225]
+	each module:    1803(0.0748441784056073) 7(0.24955436720142601) 428(0.3493734949593894) 
+  -:- time consuming: 1 sec. -:-
+<round21> ... 
+    reuslt: [split-blocks: 6, left-edges: 1319, cut-edges: 1024, cut-level: 43%, modularity: 0.39606882831007456]
+	each module:    909(0.22696345863347522) 185(0.5691432087371173) 17(0.8076009501187649) 17(0.6060606060606061) 35(0.6357856494096277) 156(0.8208366219415942) 
+  -:- time consuming: 3 sec. -:-
+<round22> ... 
+    reuslt: [split-blocks: 5, left-edges: 1321, cut-edges: 1022, cut-level: 43%, modularity: 0.38538529001113336]
+	each module:    936(0.22856863774557087) 192(0.5906783571758191) 15(0.7125890736342042) 18(0.6417112299465241) 160(0.6322861094645327) 
+  -:- time consuming: 3 sec. -:-
+<round23> ... 
+    reuslt: [split-blocks: 5, left-edges: 1172, cut-edges: 1171, cut-level: 49%, modularity: 0.3524446980179414]
+	each module:    910(0.22721314340644935) 191(0.6365605732377937) 12(0.7973421926910299) 14(0.665083135391924) 45(0.6813020439061317) 
+  -:- time consuming: 3 sec. -:-
+<round24> ... 
+    reuslt: [split-blocks: 7, left-edges: 1089, cut-edges: 1254, cut-level: 53%, modularity: 0.36217182969862827]
+	each module:    272(0.40837774941821187) 433(0.47948618570400314) 14(0.665083135391924) 186(0.6198966838860189) 20(0.9501187648456056) 6(0.9917355371900827) 158(0.624382533096226) 
+  -:- time consuming: 3 sec. -:-
+<round25> ... 
+    reuslt: [split-blocks: 7, left-edges: 895, cut-edges: 1448, cut-level: 61%, modularity: 0.3031244732819975]
+	each module:    102(0.7497243660418963) 396(0.6654902949331989) 9(0.8955223880597014) 195(0.6498916847192134) 14(0.9302325581395349) 17(0.6060606060606061) 162(0.6401896858328393) 
+  -:- time consuming: 4 sec. -:-
+<round26> ... 
+    reuslt: [split-blocks: 4, left-edges: 1246, cut-edges: 1097, cut-level: 46%, modularity: 0.36450298409101317]
+	each module:    892(0.19977379872565815) 193(0.5937548069527765) 11(0.7308970099667774) 150(0.6492101276779918) 
+  -:- time consuming: 3 sec. -:-
+<round27> ... 
+    reuslt: [split-blocks: 2, left-edges: 2219, cut-edges: 124, cut-level: 5%, modularity: 0.28666195557036994]
+	each module:    1815(0.07013666021976153) 404(0.3297824578588629) 
+  -:- time consuming: 1 sec. -:-
+<round28> ... 
+    reuslt: [split-blocks: 2, left-edges: 2250, cut-edges: 93, cut-level: 3%, modularity: 0.2948796311943982]
+	each module:    1815(0.07013666021976153) 435(0.3156634374659846) 
+  -:- time consuming: 1 sec. -:-
+<round29> ... 
+    reuslt: [split-blocks: 5, left-edges: 1227, cut-edges: 1116, cut-level: 47%, modularity: 0.3543524085046779]
+	each module:    974(0.2181386546623218) 194(0.5968312567297339) 12(0.7973421926910299) 18(0.6417112299465241) 29(0.6437291897891232) 
+  -:- time consuming: 3 sec. -:-
+<round30> ... 
+    reuslt: [split-blocks: 2, left-edges: 2243, cut-edges: 100, cut-level: 4%, modularity: 0.29326349728153417]
+	each module:    1815(0.07013666021976153) 428(0.3493734949593894) 
+  -:- time consuming: 1 sec. -:-
+<round31> ... 
+    reuslt: [split-blocks: 6, left-edges: 811, cut-edges: 1532, cut-level: 65%, modularity: 0.27938987545581145]
+	each module:    174(0.6303205940952725) 408(0.6125666241273178) 6(0.9917355371900827) 192(0.6398933511081486) 14(0.9302325581395349) 17(0.6060606060606061) 
+  -:- time consuming: 3 sec. -:-
+<round32> ... 
+    reuslt: [split-blocks: 7, left-edges: 1125, cut-edges: 1218, cut-level: 51%, modularity: 0.37103684379195073]
+	each module:    307(0.43666880022757987) 419(0.5654139396801836) 7(0.6965174129353233) 13(0.6175771971496437) 188(0.6265622396267289) 28(0.6215316315205328) 163(0.6441414740169926) 
+  -:- time consuming: 3 sec. -:-
+<round33> ... 
+    reuslt: [split-blocks: 10, left-edges: 902, cut-edges: 1441, cut-level: 61%, modularity: 0.2994317127866419]
+	each module:    52(0.6662395900064062) 9(0.8955223880597014) 433(0.6158879169333619) 9(0.8955223880597014) 9(0.8955223880597014) 187(0.623229461756374) 15(0.7125890736342042) 24(0.665742024965326) 6(0.9917355371900827) 158(0.7522018567007854) 
+  -:- time consuming: 3 sec. -:-
+<round34> ... 
+    reuslt: [split-blocks: 3, left-edges: 2236, cut-edges: 107, cut-level: 4%, modularity: 0.29493951248544825]
+	each module:    1809(0.07374327637830423) 7(0.24955436720142601) 420(0.34284314925921394) 
+  -:- time consuming: 1 sec. -:-
+<round35> ... 
+    reuslt: [split-blocks: 2, left-edges: 2247, cut-edges: 96, cut-level: 4%, modularity: 0.29420121918190606]
+	each module:    1815(0.07013666021976153) 432(0.338810242735579) 
+  -:- time consuming: 1 sec. -:-
+<round36> ... 
+    reuslt: [split-blocks: 7, left-edges: 948, cut-edges: 1395, cut-level: 59%, modularity: 0.3294479402532992]
+	each module:    185(0.616563906015664) 371(0.6234770187379213) 6(0.9917355371900827) 13(0.8637873754152824) 186(0.6198966838860189) 24(0.665742024965326) 163(0.6441414740169926) 
+  -:- time consuming: 3 sec. -:-
+<round37> ... 
+    reuslt: [split-blocks: 8, left-edges: 994, cut-edges: 1349, cut-level: 57%, modularity: 0.3451723998582854]
+	each module:    206(0.5449014680597805) 6(0.9917355371900827) 389(0.6933428393191339) 190(0.6332277953674388) 13(0.8637873754152824) 18(0.6417112299465241) 25(0.6934812760055479) 147(0.7734806629834253) 
+  -:- time consuming: 3 sec. -:-
+<round38> ... 
+    reuslt: [split-blocks: 5, left-edges: 653, cut-edges: 1690, cut-level: 72%, modularity: 0.2120705165337622]
+	each module:    17(0.6060606060606061) 416(0.6245777344043241) 188(0.6265622396267289) 14(0.9302325581395349) 18(0.6417112299465241) 
+  -:- time consuming: 3 sec. -:-
+<round39> ... 
+    reuslt: [split-blocks: 2, left-edges: 2247, cut-edges: 96, cut-level: 4%, modularity: 0.29420121918190606]
+	each module:    1815(0.07013666021976153) 432(0.35263866780947717) 
+  -:- time consuming: 1 sec. -:-
+<round40> ... 
+    reuslt: [split-blocks: 4, left-edges: 1423, cut-edges: 920, cut-level: 39%, modularity: 0.38713741637800236]
+	each module:    1058(0.1937711193120942) 195(0.5554764278592793) 21(0.7486631016042781) 149(0.784004209418574) 
+  -:- time consuming: 3 sec. -:-
+<round41> ... 
+    reuslt: [split-blocks: 6, left-edges: 1258, cut-edges: 1085, cut-level: 46%, modularity: 0.39699897500905107]
+	each module:    365(0.42390105104233206) 498(0.4414697930056292) 193(0.6432261289785035) 17(0.8076009501187649) 157(0.7474410854558438) 28(0.7766990291262137) 
+  -:- time consuming: 3 sec. -:-
+<round42> ... 
+    reuslt: [split-blocks: 5, left-edges: 1047, cut-edges: 1296, cut-level: 55%, modularity: 0.34517669221474523]
+	each module:    702(0.16409345379320017) 159(0.5759826118456801) 14(0.9302325581395349) 24(0.665742024965326) 148(0.7787424362009997) 
+  -:- time consuming: 3 sec. -:-
+<round43> ... 
+    reuslt: [split-blocks: 2, left-edges: 2246, cut-edges: 97, cut-level: 4%, modularity: 0.2939477148530643]
+	each module:    1815(0.07013666021976153) 431(0.35182237459695526) 
+  -:- time consuming: 1 sec. -:-
+<round44> ... 
+    reuslt: [split-blocks: 3, left-edges: 2237, cut-edges: 106, cut-level: 4%, modularity: 0.29668909318421316]
+	each module:    1806(0.07429026266914301) 7(0.24955436720142601) 424(0.34610832210930165) 
+  -:- time consuming: 1 sec. -:-
+<round45> ... 
+    reuslt: [split-blocks: 2, left-edges: 2225, cut-edges: 118, cut-level: 5%, modularity: 0.28829750519502445]
+	each module:    1816(0.07017530300776141) 409(0.3338639239214726) 
+  -:- time consuming: 1 sec. -:-
+<round46> ... 
+    reuslt: [split-blocks: 2, left-edges: 2248, cut-edges: 95, cut-level: 4%, modularity: 0.2932745979834647]
+	each module:    1817(0.07021394579576128) 431(0.35182237459695526) 
+  -:- time consuming: 1 sec. -:-
+<round47> ... 
+    reuslt: [split-blocks: 2, left-edges: 2239, cut-edges: 104, cut-level: 4%, modularity: 0.2921690393343535]
+	each module:    1814(0.07009801743176167) 425(0.3469246153218236) 
+  -:- time consuming: 1 sec. -:-
+<round48> ... 
+    reuslt: [split-blocks: 4, left-edges: 1218, cut-edges: 1125, cut-level: 48%, modularity: 0.378354541593206]
+	each module:    828(0.18544025262874994) 179(0.5965672387935343) 36(0.6539509536784741) 175(0.6339431262452454) 
+  -:- time consuming: 3 sec. -:-
+<round49> ... 
+    reuslt: [split-blocks: 2, left-edges: 2233, cut-edges: 110, cut-level: 4%, modularity: 0.2918003792289815]
+	each module:    1813(0.07067936790111906) 420(0.34284314925921394) 
+  -:- time consuming: 1 sec. -:-
+<round50> ... 
+    reuslt: [split-blocks: 2, left-edges: 2231, cut-edges: 112, cut-level: 4%, modularity: 0.2899878160374238]
+	each module:    1815(0.07013666021976153) 416(0.3395779764091262) 
+  -:- time consuming: 1 sec. -:-
