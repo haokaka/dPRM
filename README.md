@@ -7,7 +7,7 @@ Requirements
 
 Installation:
 ------------
-  The source code can be directly called from Java.
+  The source code can be directly called from JVM.
 
 Usage:
 --------------------------------
