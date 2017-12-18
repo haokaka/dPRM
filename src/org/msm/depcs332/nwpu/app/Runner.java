@@ -3,10 +3,13 @@
  */
 package org.msm.depcs332.nwpu.app;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.Random;
 
 import org.msm.depcs332.nwpu.app.business.Job;
@@ -68,9 +71,9 @@ public class Runner {
 // write result
 // 
 	public static void writeResult2Txt(ArrayList<Graph> resultList, BioDataPreparator prep) {
-		String prefix = "test\\out\\big\\out";
-		String fileNode = "node_attr.txt";
-		String fileEdge = "net_attr.txt";
+		String prefix = "test\\data\\output\\";
+		String fileNode = props.getProperty("output.file.node"); // "node_attr.txt";
+		String fileEdge = props.getProperty("output.file.edge"); // "net_attr.txt";
 		
 		PrintStream psNode;
 		PrintStream psEdge;
@@ -100,14 +103,25 @@ public class Runner {
 	
 // main process
 //
+	/* configuration */
+	private static Properties props = new Properties();
+	static {
+		try {
+			props.load(new FileInputStream("conf.properties"));	
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		Graph inputGraph = new Graph();
 		Graph originGraph = new Graph();
 		BioDataPreparator prep = new BioDataPreparator();
-		String prefix = "test\\data\\big\\";
-		String fileNode = prefix + "out_node_atrr_new.txt";
-		String fileEdge = prefix + "out_net_v7.txt";
-		String sifOriginGraph = "test\\out\\bit.sif";
+		String prefix = "test\\data\\input\\";
+		String fileNode = prefix + props.getProperty("input.file.node"); // "out_node_atrr_new.txt";
+		String fileEdge = prefix + props.getProperty("input.file.edge"); // "out_net_v7.txt";
+		String sifOriginGraph = "test\\data\\output\\bit.sif";
 		
 		pln("#1:"); // data preparation
 			pln("@load from $file{" + fileNode + "} & $file{" + fileEdge + "} ...");
@@ -125,10 +139,10 @@ public class Runner {
 					for (Graph sub_g: list) {
 						p("" + sub_g.size());
 						if (sub_g.size() < Divider.GRAPH_SIZE_LOWERBOUND) {
-							p("(×)\t");
+							p("(脳)\t");
 						}
 						else {
-							p("(√)\t");
+							p("(鈭�)\t");
 							leftSubGraph = sub_g;
 						}
 					}
@@ -155,7 +169,7 @@ public class Runner {
 	//
 		pln("@ready to run ...\n");
 		STRUCT best = new STRUCT();
-		int testRoundNum = 50;  // 4 configuration============================
+		int testRoundNum = Integer.valueOf(props.getProperty("test.round.number"));  // 4 configuration============================
 		for (int i = 0; i < testRoundNum; i++) {
 			pln("<round" + (i + 1) + "> ... ");
 				long t0 = System.currentTimeMillis();
